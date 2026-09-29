@@ -15,10 +15,10 @@ export const pt: Dictionary = {
   },
   nav: {
     hero: "Início",
-    stack: "Stack",
-    projects: "Projetos",
     about: "Sobre",
     experience: "Experiência",
+    projects: "Projetos",
+    skills: "Skills",
     contact: "Contato",
   },
   hero: {
@@ -28,13 +28,14 @@ export const pt: Dictionary = {
     viewProjects: "Ver Projetos",
     contactMe: "Entre em Contato",
   },
-  stack: {
-    title: "Stack",
+  skills: {
+    title: "Skills",
     description:
-      "Tecnologias que uso para projetar, construir e entregar sistemas back-end.",
+      "Tecnologias que uso para projetar, construir e entregar software — backend em primeiro lugar, com alcance de front-end para transitar pela stack toda.",
     categories: {
       languages: "Linguagens",
       backend: "Back-End",
+      frontend: "Front-End",
       database: "Banco de Dados",
       devopsTools: "DevOps & Ferramentas",
     },
@@ -44,6 +45,24 @@ export const pt: Dictionary = {
     emailLabel: "Enviar e-mail",
     githubLabel: "Perfil no GitHub",
     linkedinLabel: "Perfil no LinkedIn",
+  },
+  projects: {
+    title: "Projetos",
+    description:
+      "Projetos selecionados de backend — o que fazem, como foram construídos e onde encontrar o código.",
+    featuredLabel: "Projeto em destaque",
+    githubLabel: "GitHub",
+    categoryLabels: {
+      backend: "Backend",
+      frontend: "Frontend",
+      fullstack: "Full-Stack",
+    },
+    items: {
+      gamehub: {
+        description:
+          "Chat em tempo real para comunidades de jogadores — canais públicos e privados, mensagens diretas e comunicação autenticada ao vivo, construído com Clean Architecture em .NET e PostgreSQL.",
+      },
+    },
   },
   comingSoon: "Esta seção está em construção.",
 };

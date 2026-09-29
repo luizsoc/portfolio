@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="flex min-h-screen items-center border-b border-border"
+      className="flex min-h-screen items-center border-b border-border last:border-b-0"
     >
       <Container>
         <RevealOnScroll className="flex max-w-2xl flex-col gap-6">

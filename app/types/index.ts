@@ -1,9 +1,9 @@
 export type NavId =
   | "hero"
-  | "stack"
-  | "projects"
   | "about"
   | "experience"
+  | "projects"
+  | "skills"
   | "contact";
 
 export type NavItem = {
@@ -20,7 +20,25 @@ export type Profile = {
 
 export type Locale = "en" | "pt";
 
-export type StackCategoryId = "languages" | "backend" | "database" | "devopsTools";
+export type SkillCategoryId =
+  | "languages"
+  | "backend"
+  | "frontend"
+  | "database"
+  | "devopsTools";
+
+export type ProjectId = "gamehub";
+
+export type ProjectCategory = "backend" | "frontend" | "fullstack";
+
+export type Project = {
+  id: ProjectId;
+  name: string;
+  category: ProjectCategory;
+  technologies: string[];
+  githubUrl: string;
+  featured: boolean;
+};
 
 export type Dictionary = {
   meta: {
@@ -41,16 +59,24 @@ export type Dictionary = {
     viewProjects: string;
     contactMe: string;
   };
-  stack: {
+  skills: {
     title: string;
     description: string;
-    categories: Record<StackCategoryId, string>;
+    categories: Record<SkillCategoryId, string>;
   };
   footer: {
     rights: string;
     emailLabel: string;
     githubLabel: string;
     linkedinLabel: string;
+  };
+  projects: {
+    title: string;
+    description: string;
+    featuredLabel: string;
+    githubLabel: string;
+    categoryLabels: Record<ProjectCategory, string>;
+    items: Record<ProjectId, { description: string }>;
   };
   comingSoon: string;
 };

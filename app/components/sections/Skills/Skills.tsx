@@ -6,29 +6,32 @@ import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
 import { Badge } from "@/app/components/ui/Badge";
 import { Card } from "@/app/components/ui/Card";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
-import { STACK_CATEGORIES } from "@/app/lib/content/stack";
+import { SKILL_CATEGORIES } from "@/app/lib/content/skills";
 import { getNavIndex } from "@/app/lib/navigation";
 
-export function Stack() {
+export function Skills() {
   const { dictionary } = useLanguage();
 
   return (
-    <section id="stack" className="border-b border-border py-24">
+    <section
+      id="skills"
+      className="border-b border-border py-24 last:border-b-0"
+    >
       <Container>
         <RevealOnScroll>
           <SectionHeading
-            index={getNavIndex("stack")}
-            title={dictionary.stack.title}
-            description={dictionary.stack.description}
+            index={getNavIndex("skills")}
+            title={dictionary.skills.title}
+            description={dictionary.skills.description}
           />
         </RevealOnScroll>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {STACK_CATEGORIES.map((category, categoryIndex) => (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {SKILL_CATEGORIES.map((category, categoryIndex) => (
             <RevealOnScroll key={category.id} delay={categoryIndex * 0.06}>
               <Card className="flex h-full flex-col gap-4">
                 <h3 className="font-mono text-xs tracking-widest text-accent uppercase">
-                  {dictionary.stack.categories[category.id]}
+                  {dictionary.skills.categories[category.id]}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.technologies.map((tech) => (
