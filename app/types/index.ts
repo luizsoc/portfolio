@@ -102,5 +102,12 @@ export type Dictionary = {
     categoryLabels: Record<ProjectCategory, string>;
     items: Record<ProjectId, { description: string }>;
   };
-  comingSoon: string;
+  contact: {
+    title: string;
+    description: string;
+    cta: string;
+    emailLabel: string;
+    githubLabel: string;
+    linkedinLabel: string;
+  };
 };

@@ -100,5 +100,13 @@ export const pt: Dictionary = {
       },
     },
   },
-  comingSoon: "Esta seção está em construção.",
+  contact: {
+    title: "Contato",
+    description:
+      "Tem um projeto, oportunidade ou simplesmente quer conversar? Fique à vontade para entrar em contato.",
+    cta: "Entrar em contato",
+    emailLabel: "E-mail",
+    githubLabel: "GitHub",
+    linkedinLabel: "LinkedIn",
+  },
 };
