@@ -40,6 +40,21 @@ export type Project = {
   featured: boolean;
 };
 
+export type ExperienceId = "positivo" | "minsait";
+
+export type Experience = {
+  id: ExperienceId;
+  company: string;
+};
+
+export type ExperienceContent = {
+  role: string;
+  period: string;
+  location: string;
+  model: string;
+  highlights: string[];
+};
+
 export type Dictionary = {
   meta: {
     title: string;
@@ -69,6 +84,15 @@ export type Dictionary = {
     emailLabel: string;
     githubLabel: string;
     linkedinLabel: string;
+  };
+  about: {
+    title: string;
+    paragraph: string;
+  };
+  experience: {
+    title: string;
+    description: string;
+    items: Record<ExperienceId, ExperienceContent>;
   };
   projects: {
     title: string;

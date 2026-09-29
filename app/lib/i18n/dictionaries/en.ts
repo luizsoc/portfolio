@@ -46,6 +46,42 @@ export const en: Dictionary = {
     githubLabel: "GitHub profile",
     linkedinLabel: "LinkedIn profile",
   },
+  about: {
+    title: "About",
+    paragraph:
+      "I'm a Back-End Developer focused on building reliable APIs, working with databases, and developing software with Python, Java, and C#. I enjoy solving technical problems and continuously improving my development skills.",
+  },
+  experience: {
+    title: "Experience",
+    description: "Professional experience in IT support and backend development.",
+    items: {
+      positivo: {
+        role: "IT Intern",
+        period: "Apr 2026 — Jul 2026",
+        location: "São Paulo, Brazil",
+        model: "On-site",
+        highlights: [
+          "Provided IT support and system maintenance, focusing on operational stability, incident resolution, and service continuity.",
+          "Administered and configured Linux and Windows environments, including user management, permissions, system services, and IT infrastructure support.",
+          "Diagnosed and resolved hardware issues, including failure identification, component replacement, performance testing, and corporate equipment support.",
+          "Supported the installation, configuration, monitoring, and troubleshooting of information systems, operating systems, and infrastructure resources.",
+          "Worked with Microsoft Excel for data organization, advanced formulas, pivot tables, analytical reports, and operational process support.",
+        ],
+      },
+      minsait: {
+        role: "Technology Apprentice",
+        period: "Jul 2024 — Nov 2025",
+        location: "São Paulo, Brazil",
+        model: "Hybrid",
+        highlights: [
+          "Developed REST APIs using Python, Django, and Django REST Framework (DRF), focusing on scalability, versioning, and standardized API development.",
+          "Implemented JWT authentication and token-based authorization, including Swagger documentation for API endpoints.",
+          "Administered and optimized PostgreSQL databases, working with migrations, optimized queries, triggers, and views.",
+          "Worked with Microsoft Excel for data manipulation and automation, using pivot tables, interactive charts, advanced formulas, PROCX/ÍNDICE/CORRESP, SOMASES, SEERRO, and macros.",
+        ],
+      },
+    },
+  },
   projects: {
     title: "Projects",
     description:

@@ -46,6 +46,42 @@ export const pt: Dictionary = {
     githubLabel: "Perfil no GitHub",
     linkedinLabel: "Perfil no LinkedIn",
   },
+  about: {
+    title: "Sobre",
+    paragraph:
+      "Sou Desenvolvedor Back-End com foco na construção de APIs, bancos de dados e desenvolvimento de software com Python, Java e C#. Gosto de resolver problemas técnicos e evoluir continuamente minhas habilidades em desenvolvimento.",
+  },
+  experience: {
+    title: "Experiência",
+    description: "Experiência profissional em suporte de TI e desenvolvimento backend.",
+    items: {
+      positivo: {
+        role: "Estagiário de TI",
+        period: "abr. de 2026 — jul. de 2026",
+        location: "São Paulo, Brasil",
+        model: "Presencial",
+        highlights: [
+          "Atuação em suporte de TI e manutenção de sistemas, com foco em estabilidade operacional, resolução de incidentes e continuidade dos serviços.",
+          "Administração e configuração de ambientes Linux e Windows, incluindo gerenciamento de usuários, permissões, serviços do sistema e suporte à infraestrutura de TI.",
+          "Diagnóstico e resolução de problemas de hardware, incluindo identificação de falhas, substituição de componentes, testes de desempenho e suporte a equipamentos corporativos.",
+          "Suporte à instalação, configuração, monitoramento e troubleshooting de sistemas de informação, sistemas operacionais e recursos de infraestrutura.",
+          "Manipulação e organização de dados no Microsoft Excel, utilizando fórmulas avançadas, tabelas dinâmicas e relatórios analíticos.",
+        ],
+      },
+      minsait: {
+        role: "Aprendiz de Tecnologia",
+        period: "jul. de 2024 — nov. de 2025",
+        location: "São Paulo, Brasil",
+        model: "Híbrido",
+        highlights: [
+          "Desenvolvimento de APIs REST utilizando Python, Django e Django REST Framework (DRF), com foco em escalabilidade, versionamento e padronização.",
+          "Implementação de autenticação JWT e autorização baseada em tokens, além da documentação dos endpoints com Swagger.",
+          "Administração e otimização de bancos de dados PostgreSQL, incluindo migrations, queries otimizadas, triggers e views.",
+          "Manipulação e automação de dados no Microsoft Excel, utilizando tabelas dinâmicas, gráficos interativos, fórmulas avançadas, PROCX/ÍNDICE/CORRESP, SOMASES, SEERRO e macros.",
+        ],
+      },
+    },
+  },
   projects: {
     title: "Projetos",
     description:
