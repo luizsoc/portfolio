@@ -28,6 +28,17 @@ export const metadata: Metadata = {
     template: `%s | ${profile.name}`,
   },
   description: dictionaries.en.meta.description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: profile.name,
+    locale: "en_US",
+    title: dictionaries.en.meta.title,
+    description: dictionaries.en.meta.description,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
