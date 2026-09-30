@@ -48,7 +48,7 @@ export function Experience() {
                     {content.location} · {content.model}
                   </p>
 
-                  <ul className="flex flex-col gap-2">
+                  <ul className="flex max-w-2xl flex-col gap-2">
                     {content.highlights.map((point) => (
                       <li
                         key={point}

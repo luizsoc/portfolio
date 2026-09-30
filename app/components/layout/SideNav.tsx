@@ -44,7 +44,7 @@ export function SideNav() {
                   />
                   <span
                     className={cn(
-                      "font-mono text-xs tracking-wide uppercase opacity-0 transition-opacity duration-200 group-hover:opacity-100",
+                      "font-mono text-xs tracking-wide uppercase opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100",
                       isActive && "text-accent opacity-100",
                       !isActive && "text-foreground-muted"
                     )}

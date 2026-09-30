@@ -26,9 +26,13 @@ export function Skills() {
           />
         </RevealOnScroll>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-wrap justify-center gap-6">
           {SKILL_CATEGORIES.map((category, categoryIndex) => (
-            <RevealOnScroll key={category.id} delay={categoryIndex * 0.06}>
+            <RevealOnScroll
+              key={category.id}
+              delay={categoryIndex * 0.06}
+              className="w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+            >
               <Card className="flex h-full flex-col gap-4">
                 <h3 className="font-mono text-xs tracking-widest text-accent uppercase">
                   {dictionary.skills.categories[category.id]}
