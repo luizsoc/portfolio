@@ -22,6 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://luizsoc.vercel.app"),
   title: {
     default: dictionaries.en.meta.title,
     template: `%s | ${profile.name}`,
