@@ -20,8 +20,17 @@ export function MobileNav() {
   useEffect(() => {
     if (!isOpen) return;
 
+    // Content behind the panel: real focus isolation for a role="dialog",
+    // not just visual coverage. The trigger button's own top bar is left
+    // out on purpose — inert-ing it would block the .focus() call back to
+    // it below when the dialog closes.
+    const main = document.getElementById("main-content");
+    const footer = document.querySelector("footer");
+
     panelRef.current?.focus();
     document.body.style.overflow = "hidden";
+    main?.setAttribute("inert", "");
+    footer?.setAttribute("inert", "");
 
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -34,12 +43,14 @@ export function MobileNav() {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
+      main?.removeAttribute("inert");
+      footer?.removeAttribute("inert");
     };
   }, [isOpen]);
 
   return (
     <div className="lg:hidden">
-      <div className="fixed top-0 right-0 left-0 z-40 flex items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-sm">
+      <header className="fixed top-0 right-0 left-0 z-40 flex items-center justify-between border-b border-border bg-background/80 px-6 py-4 backdrop-blur-sm">
         <span className="font-mono text-sm text-foreground-muted">
           {profile.name}
         </span>
@@ -54,7 +65,7 @@ export function MobileNav() {
         >
           <Menu aria-hidden="true" size={22} />
         </button>
-      </div>
+      </header>
 
       {isOpen && (
         <div

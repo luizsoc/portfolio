@@ -55,8 +55,8 @@ export function Hero() {
               src="/images/hero-computer.svg"
               alt=""
               aria-hidden="true"
-              width={732}
-              height={436}
+              width={2200}
+              height={1466}
               priority
               className="h-auto w-full"
             />

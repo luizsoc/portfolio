@@ -4,10 +4,12 @@ import { Experience } from "@/app/components/sections/Experience/Experience";
 import { ProjectsSection } from "@/app/components/sections/Projects/ProjectsSection";
 import { Skills } from "@/app/components/sections/Skills/Skills";
 import { Contact } from "@/app/components/sections/Contact/Contact";
+import { ScrollToHash } from "@/app/components/ScrollToHash";
 
 export default function Home() {
   return (
     <>
+      <ScrollToHash />
       <Hero />
       <About />
       <Experience />

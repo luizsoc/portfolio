@@ -44,15 +44,15 @@ app/
 
 Regras:
 - Componentes usados em **uma única seção** ficam colocalizados perto de quem os usa (pasta privada `_components`); só sobem para `app/components/` quando reutilizados em **2+ lugares**.
-- `app/lib/content/*` é a única fonte de verdade para textos/dados do portfólio (projetos, stack, experiência). Componentes não hardcodam conteúdo — recebem via import desses arquivos. Isso facilita editar o portfólio sem tocar em JSX.
+- `app/lib/content/*` é a única fonte de verdade para textos/dados do portfólio (projetos, skills, experiência). Componentes não hardcodam conteúdo — recebem via import desses arquivos. Isso facilita editar o portfólio sem tocar em JSX.
 - Alias `@/*` já configurado no `tsconfig.json` — sempre importar com `@/...`, nunca `../../../`.
 
 ## Internacionalização (EN default / PT-BR alternativo)
 
 - Abordagem client-side simples, sem roteamento por locale (`/en`, `/pt`) e sem lib de i18n — decisão deliberada para manter o projeto simples (site de uma página só).
-- Textos traduzíveis (UI copy: nav, hero, stack, footer, a11y labels) vivem em `app/lib/i18n/dictionaries/{en,pt}.ts`, tipados por `Dictionary` em `app/types`. Dados factuais não traduzíveis (nome, links, lista de tecnologias) continuam em `app/lib/content/*` como antes.
+- Textos traduzíveis (UI copy: nav, hero, skills, projects, experience, contact, a11y labels) vivem em `app/lib/i18n/dictionaries/{en,pt}.ts`, tipados por `Dictionary` em `app/types`. Dados factuais não traduzíveis (nome, links, lista de tecnologias) continuam em `app/lib/content/*` como antes.
 - `LanguageProvider` (`app/components/providers/LanguageProvider.tsx`) lê/escreve o locale em `localStorage` através de `useSyncExternalStore` (não `useState` + efeito — evita o lint `react-hooks/set-state-in-effect` e é o mecanismo que o próprio React recomenda para sincronizar com uma store externa sem mismatch de hidratação). `getServerSnapshot` sempre retorna `"en"`, igual ao HTML renderizado no servidor; a preferência salva só é lida no cliente após o mount. Isso causa um pequeno "flash" para EN em quem já escolheu PT antes de recarregar — troca aceita em nome da simplicidade (evitar cookie + leitura de locale no servidor). `<html lang>` é sincronizado via efeito imperativo separado (mutação direta do DOM, não `setState`).
-- **Consequência arquitetural**: qualquer seção que renderize texto traduzido precisa ser Client Component (consome `useLanguage()`), pois o texto precisa reagir à troca de idioma sem reload de página. `Hero`, `Stack`, `PlaceholderSections`, `SideNav`, `MobileNav`, `Footer`, `SkipLink` são Client por esse motivo — é uma exceção justificada à regra "Server por padrão", não um desvio arbitrário. Dados/estrutura que não dependem de idioma (ex.: `STACK_CATEGORIES`) continuam em módulos simples sem `'use client'`.
+- **Consequência arquitetural**: qualquer seção que renderize texto traduzido precisa ser Client Component (consome `useLanguage()`), pois o texto precisa reagir à troca de idioma sem reload de página. `Hero`, `About`, `Experience`, `ProjectsSection`, `Skills`, `Contact`, `SideNav`, `MobileNav`, `Footer`, `SkipLink` são Client por esse motivo — é uma exceção justificada à regra "Server por padrão", não um desvio arbitrário. Dados/estrutura que não dependem de idioma (ex.: `SKILL_CATEGORIES`, `PROJECTS`) continuam em módulos simples sem `'use client'`.
 - Não duplicar a página inteira por idioma. Um único componente renderiza a UI e troca só o texto via dicionário.
 
 ## Server vs Client Components
@@ -65,7 +65,7 @@ Regras:
 ## Estilização (Tailwind v4)
 
 - Design tokens (cores, fontes, espaçamentos customizados) entram como CSS vars em `@theme inline` dentro de `app/globals.css` — não duplicar valores mágicos em classes espalhadas pelo código.
-- Dark mode: seguir o padrão já presente (`prefers-color-scheme` + variáveis `--background`/`--foreground`). Se o design de referência exigir toggle manual, usar `data-theme`/classe no `<html>` controlada por um Client Component pequeno, mantendo os tokens em CSS var.
+- Site é **dark-only** (decisão de design já tomada) — não existe toggle claro/escuro nem media query `prefers-color-scheme`. A paleta fixa vive em `:root` e é mapeada em `@theme inline`, em `app/globals.css`.
 - Mobile-first sempre: escrever a classe base para mobile e usar `sm:`/`md:`/`lg:`/`xl:` para progressão. Testar em pelo menos 375px, 768px e 1280px.
 - Evitar CSS custom fora do Tailwind, exceto o necessário em `globals.css` (resets, `@theme`, keyframes não triviais).
 
@@ -75,7 +75,7 @@ Regras:
 - Definir `title` com template (`title: { default, template: '%s | Nome' }`) no root layout.
 - Criar `app/sitemap.ts` e `app/robots.ts` (código, não arquivos estáticos) quando as rotas estiverem definidas.
 - OG image: gerar com `next/og` (`opengraph-image.tsx`) para controle de branding, em vez de imagem estática, se viável.
-- `lang="en"` atual no `<html>` deve ser revisado para o idioma real do conteúdo do portfólio (ex. `pt-BR`) quando o conteúdo for definido.
+- `<html lang>` já é sincronizado dinamicamente pelo `LanguageProvider` (`en`/`pt-BR` conforme o idioma ativo) — não precisa de ajuste manual.
 
 ## Acessibilidade
 
