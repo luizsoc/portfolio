@@ -12,44 +12,60 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border py-10">
-      <Container className="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
-        <div>
-          <p className="text-sm font-medium text-foreground">{profile.name}</p>
-          <p className="font-mono text-xs text-foreground-subtle">
-            {dictionary.hero.role}
+      <Container className="flex flex-col gap-8">
+        <div className="grid grid-cols-1 items-center gap-6 text-center md:grid-cols-3 md:text-left">
+          <div className="md:justify-self-start">
+            <p className="text-sm font-medium text-foreground">
+              {profile.name}
+            </p>
+            <p className="font-mono text-xs text-foreground-subtle">
+              {dictionary.hero.role}
+            </p>
+          </div>
+
+          <div className="flex items-center justify-center gap-5">
+            <a
+              href={`mailto:${profile.email}`}
+              aria-label={dictionary.footer.emailLabel}
+              className="text-foreground-muted transition-colors duration-200 hover:text-accent"
+            >
+              <Mail aria-hidden="true" size={18} />
+            </a>
+            <a
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={dictionary.footer.githubLabel}
+              className="text-foreground-muted transition-colors duration-200 hover:text-accent"
+            >
+              <GitHubIcon size={18} />
+            </a>
+            <a
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={dictionary.footer.linkedinLabel}
+              className="text-foreground-muted transition-colors duration-200 hover:text-accent"
+            >
+              <LinkedInIcon size={18} />
+            </a>
+          </div>
+
+          <p className="font-mono text-xs text-foreground-subtle md:justify-self-end md:text-right">
+            © {year} {profile.name}. {dictionary.footer.rights}
           </p>
         </div>
 
-        <div className="flex items-center gap-5">
+        <p className="border-t border-border pt-6 text-center font-mono text-[11px] text-foreground-subtle">
+          Hero illustration:{" "}
           <a
-            href={`mailto:${profile.email}`}
-            aria-label={dictionary.footer.emailLabel}
-            className="text-foreground-muted transition-colors duration-200 hover:text-accent"
-          >
-            <Mail aria-hidden="true" size={18} />
-          </a>
-          <a
-            href={profile.github}
+            href="https://www.magnific.com"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={dictionary.footer.githubLabel}
-            className="text-foreground-muted transition-colors duration-200 hover:text-accent"
+            className="underline underline-offset-2 hover:text-accent"
           >
-            <GitHubIcon size={18} />
+            Designed by Magnific
           </a>
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={dictionary.footer.linkedinLabel}
-            className="text-foreground-muted transition-colors duration-200 hover:text-accent"
-          >
-            <LinkedInIcon size={18} />
-          </a>
-        </div>
-
-        <p className="font-mono text-xs text-foreground-subtle">
-          © {year} {profile.name}. {dictionary.footer.rights}
         </p>
       </Container>
     </footer>

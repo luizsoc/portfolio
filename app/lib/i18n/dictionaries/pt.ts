@@ -2,7 +2,7 @@ import type { Dictionary } from "@/app/types";
 
 export const pt: Dictionary = {
   meta: {
-    title: "Luiz Otavio — Desenvolvedor Back-End",
+    title: "Luiz Silva — Desenvolvedor Back-End",
     description:
       "Desenvolvedor back-end focado em APIs, sistemas back-end, bancos de dados e engenharia de software.",
   },
