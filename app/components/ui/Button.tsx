@@ -4,21 +4,28 @@ import { cn } from "@/app/lib/utils";
 import { scrollToSection } from "@/app/lib/scrollToSection";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
+type ButtonSize = "sm" | "md";
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-accent-on hover:bg-accent-strong focus-visible:outline-accent active:bg-accent-strong",
+    "bg-foreground text-background hover:bg-white active:bg-foreground-muted",
   secondary:
-    "border border-border text-foreground hover:border-accent/50 hover:text-accent-strong focus-visible:outline-accent active:border-accent/50 active:bg-surface-hover",
+    "border border-border-strong bg-surface text-foreground hover:border-white/20 hover:bg-surface-hover active:bg-surface-raised",
   ghost:
-    "text-foreground-muted hover:text-foreground focus-visible:outline-accent active:text-foreground",
+    "text-foreground-muted hover:bg-surface-hover hover:text-foreground active:text-foreground",
+};
+
+const sizeStyles: Record<ButtonSize, string> = {
+  sm: "h-8 px-3 text-[13px]",
+  md: "h-10 px-4 text-sm",
 };
 
 const baseStyles =
-  "inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-medium transition duration-200 outline-offset-2 focus-visible:outline-2 active:scale-[0.98]";
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg font-medium whitespace-nowrap transition-colors duration-150 outline-offset-2 focus-visible:outline-2 focus-visible:outline-accent";
 
 type ButtonProps = {
   variant?: ButtonVariant;
+  size?: ButtonSize;
   className?: string;
   children: React.ReactNode;
 } & (
@@ -34,11 +41,12 @@ type ButtonProps = {
 
 export function Button({
   variant = "primary",
+  size = "md",
   className,
   children,
   ...props
 }: ButtonProps) {
-  const classes = cn(baseStyles, variantStyles[variant], className);
+  const classes = cn(baseStyles, variantStyles[variant], sizeStyles[size], className);
 
   if ("href" in props && props.href !== undefined) {
     const { href, onClick, ...anchorProps } = props;

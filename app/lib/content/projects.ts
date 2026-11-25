@@ -1,9 +1,17 @@
 import type { Project } from "@/app/types";
 
-// Facts only — verified against the real GameHub repository. No metrics,
-// demo, or docs links beyond what actually exists. Structured so a future
-// project only needs an entry here plus its dictionary description.
+// Facts only — verified against the public repositories. DataFlow Pipeline
+// has no public repository yet, so it carries no link and is flagged as in
+// development until one exists.
 export const PROJECTS: Project[] = [
+  {
+    id: "dataflow",
+    name: "DataFlow Pipeline",
+    category: "data",
+    technologies: ["Python", "Pandas", "PostgreSQL", "Apache Airflow", "Docker"],
+    featured: true,
+    inDevelopment: true,
+  },
   {
     id: "gamehub",
     name: "GameHub",
@@ -19,6 +27,22 @@ export const PROJECTS: Project[] = [
       "xUnit",
     ],
     githubUrl: "https://github.com/luizsoc/GameHub",
-    featured: true,
+    featured: false,
+  },
+  {
+    id: "devopsEsg",
+    name: "ESG Initiative",
+    category: "devops",
+    technologies: [
+      "Java 17",
+      "Spring Boot",
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions",
+      "JUnit",
+    ],
+    githubUrl: "https://github.com/luizsoc/devops-esg",
+    featured: false,
+    academic: true,
   },
 ];

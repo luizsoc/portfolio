@@ -1,16 +1,17 @@
 # Luiz Silva — Portfólio
 
-Portfólio pessoal de um **Desenvolvedor Back-End**. Site de página única, renderizado estaticamente com o App Router do Next.js, com foco em qualidade visual, performance, acessibilidade e SEO.
+Portfólio pessoal de **Luiz Silva**, com foco em **Engenharia de Dados** e **Análise de Dados**. Site de página única, renderizado estaticamente com o App Router do Next.js, com foco em qualidade visual, performance, acessibilidade e SEO.
 
 **🔗 Acesse: [luizsoc.vercel.app](https://luizsoc.vercel.app/)**
 
-![Página inicial do portfólio: nome Luiz Silva, cargo Back-End Developer, botões View Projects e Contact Me e ilustração de janelas de código](public/images/print-home.png)
+![Página inicial do portfólio: título "Data pipelines, from source to database.", botões View projects e Get in touch e um diagrama do DataFlow Pipeline com as etapas Extract, Transform e Load](public/images/print-home.png)
 
 ## Funcionalidades
 
-- **Layout de página única** com as seções Início, Sobre, Experiência, Projetos, Skills e Contato
+- **Layout de página única** com as seções Início, Sobre, Projetos, Skills, Experiência (com Formação) e Contato
+- **Foco em dados**: diagrama do DataFlow Pipeline (Extract → Transform → Load, orquestrado pelo Airflow) no topo e projetos e skills de dados em destaque
 - **Bilíngue (EN / PT-BR)**: troca de idioma no cliente, preferência salva no `localStorage` e `<html lang>` sincronizado
-- **Navegação responsiva**: menu lateral fixo no desktop, menu recolhível no mobile e destaque da seção ativa
+- **Navegação responsiva**: header fixo com links no desktop, menu em tela cheia no mobile e destaque da seção ativa
 - **Acessível por padrão**: HTML semântico, skip link, foco visível, navegação por teclado e suporte a `prefers-reduced-motion`
 - **Design dark-only** com tokens definidos em CSS via `@theme` do Tailwind v4
 - **Vercel Analytics** e **Speed Insights** integrados

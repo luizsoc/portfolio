@@ -1,72 +1,116 @@
 "use client";
 
+import { Briefcase, GraduationCap } from "lucide-react";
 import { Container } from "@/app/components/ui/Container";
 import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
-import { Card } from "@/app/components/ui/Card";
+import { Badge } from "@/app/components/ui/Badge";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
-import { EXPERIENCES } from "@/app/lib/content/experience";
+import { EDUCATION, EXPERIENCES } from "@/app/lib/content/experience";
 import { getNavIndex } from "@/app/lib/navigation";
 
 export function Experience() {
   const { dictionary } = useLanguage();
+  const { experience } = dictionary;
 
   return (
-    <section
-      id="experience"
-      className="border-b border-border py-24 last:border-b-0"
-    >
+    <section id="experience" className="border-b border-border py-24 md:py-32">
       <Container>
         <RevealOnScroll>
           <SectionHeading
             index={getNavIndex("experience")}
-            title={dictionary.experience.title}
-            description={dictionary.experience.description}
+            label={dictionary.nav.experience}
+            title={experience.title}
           />
         </RevealOnScroll>
 
-        <div className="flex flex-col gap-6">
-          {EXPERIENCES.map((experience, index) => {
-            const content = dictionary.experience.items[experience.id];
+        <RevealOnScroll>
+          <h3 className="mb-2 flex items-center gap-2 font-mono text-xs text-foreground-subtle">
+            <Briefcase aria-hidden="true" size={13} />
+            {experience.workTitle}
+          </h3>
+        </RevealOnScroll>
+
+        <ol>
+          {EXPERIENCES.map((item, index) => {
+            const content = experience.items[item.id];
 
             return (
-              <RevealOnScroll key={experience.id} delay={index * 0.06}>
-                <Card className="flex flex-col gap-4">
-                  <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground">
-                        {experience.company}
-                      </h3>
-                      <p className="text-accent-strong">{content.role}</p>
-                    </div>
-                    <p className="font-mono text-xs text-foreground-subtle">
-                      {content.period}
+              <li key={item.id} className="border-b border-border">
+                <RevealOnScroll
+                  delay={index * 0.05}
+                  className="grid gap-4 py-8 md:grid-cols-[13rem_1fr] md:gap-10"
+                >
+                  <div className="flex flex-col gap-1 font-mono text-xs">
+                    <p className="text-foreground-muted">{content.period}</p>
+                    <p className="text-foreground-subtle">
+                      {content.location} · {content.model}
                     </p>
                   </div>
 
-                  <p className="font-mono text-xs tracking-wide text-foreground-muted uppercase">
-                    {content.location} · {content.model}
-                  </p>
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <h4 className="text-lg font-semibold tracking-[-0.02em] text-foreground">
+                        {item.company}
+                      </h4>
+                      <p className="text-sm text-foreground-muted">{content.role}</p>
+                    </div>
 
-                  <ul className="flex max-w-2xl flex-col gap-2">
-                    {content.highlights.map((point) => (
-                      <li
-                        key={point}
-                        className="flex gap-2 text-sm leading-relaxed text-foreground-muted"
-                      >
-                        <span
-                          aria-hidden="true"
-                          className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent"
-                        />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </Card>
-              </RevealOnScroll>
+                    <ul className="flex max-w-3xl flex-col gap-2.5">
+                      {content.highlights.map((point) => (
+                        <li
+                          key={point}
+                          className="flex gap-3 text-sm leading-relaxed text-foreground-muted"
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-[0.6rem] h-px w-3 shrink-0 bg-foreground-subtle"
+                          />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <ul className="flex flex-wrap gap-1.5">
+                      {item.technologies.map((tech) => (
+                        <li key={tech}>
+                          <Badge>{tech}</Badge>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </RevealOnScroll>
+              </li>
             );
           })}
-        </div>
+        </ol>
+
+        <RevealOnScroll>
+          <h3 className="mt-16 mb-2 flex items-center gap-2 font-mono text-xs text-foreground-subtle">
+            <GraduationCap aria-hidden="true" size={14} />
+            {experience.educationTitle}
+          </h3>
+        </RevealOnScroll>
+
+        <ol>
+          {EDUCATION.map((item) => {
+            const content = experience.education[item.id];
+
+            return (
+              <li key={item.id} className="border-b border-border">
+                <RevealOnScroll className="grid gap-4 py-8 md:grid-cols-[13rem_1fr] md:gap-10">
+                  <p className="font-mono text-xs text-foreground-muted">{content.detail}</p>
+                  <div>
+                    <h4 className="text-lg font-semibold tracking-[-0.02em] text-foreground">
+                      {item.institution}
+                    </h4>
+                    <p className="text-sm text-foreground-muted">{content.degree}</p>
+                  </div>
+                </RevealOnScroll>
+              </li>
+            );
+          })}
+        </ol>
       </Container>
     </section>
   );

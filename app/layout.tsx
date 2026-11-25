@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SkipLink } from "@/app/components/ui/SkipLink";
-import { SideNav } from "@/app/components/layout/SideNav";
-import { MobileNav } from "@/app/components/layout/MobileNav";
+import { Header } from "@/app/components/layout/Header";
 import { Footer } from "@/app/components/layout/Footer";
 import { LanguageProvider } from "@/app/components/providers/LanguageProvider";
 import { profile } from "@/app/lib/content/profile";
@@ -50,9 +49,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         <LanguageProvider>
           <SkipLink />
-          <SideNav />
-          <MobileNav />
-          <main id="main-content" className="flex-1 pt-16 lg:pt-0 lg:pl-24">
+          <Header />
+          <main id="main-content" className="flex-1 pt-14">
             {children}
           </main>
           <Footer />

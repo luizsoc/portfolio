@@ -1,9 +1,27 @@
-import type { Experience } from "@/app/types";
+import type { Education, Experience } from "@/app/types";
 
-// Company names only — facts that don't change between languages. Role,
-// dates, location, and descriptions are translated content and live in the
-// i18n dictionaries, keyed by id. Most recent first.
+// Language-independent facts only. Role, dates, location, and descriptions
+// are translated content and live in the i18n dictionaries, keyed by id.
+// Most recent first.
 export const EXPERIENCES: Experience[] = [
-  { id: "positivo", company: "Positivo S+" },
-  { id: "minsait", company: "Minsait" },
+  {
+    id: "positivo",
+    company: "Positivo S+",
+    technologies: ["Linux", "Windows", "Excel"],
+  },
+  {
+    id: "minsait",
+    company: "Minsait",
+    technologies: [
+      "Python",
+      "PostgreSQL",
+      "Django",
+      "DRF",
+      "JWT",
+      "Swagger",
+      "Excel",
+    ],
+  },
 ];
+
+export const EDUCATION: Education[] = [{ id: "fiap", institution: "FIAP" }];

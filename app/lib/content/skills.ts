@@ -1,38 +1,39 @@
-import type { SkillCategoryId } from "@/app/types";
-
-export type SkillCategory = {
-  id: SkillCategoryId;
-  technologies: string[];
-};
+import type { SkillCategory } from "@/app/types";
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    id: "languages",
-    technologies: ["Python", "Java", "C#", "TypeScript", "JavaScript"],
+    id: "dataEngineering",
+    skills: [
+      "Python",
+      "SQL",
+      "PostgreSQL",
+      "ETL / ELT",
+      "Pandas",
+      "Apache Airflow",
+      "Docker",
+    ],
+  },
+  {
+    id: "dataAnalysis",
+    skills: ["SQL", "Pandas", "Excel", "Pivot tables"],
   },
   {
     id: "backend",
-    technologies: [
+    skills: [
+      "REST APIs",
       "Django",
       "Django REST Framework",
-      "Spring Boot",
-      "ASP.NET Core / .NET",
+      "JWT",
+      "Swagger",
+      "ASP.NET Core",
     ],
   },
   {
-    id: "frontend",
-    technologies: ["React", "Next.js", "Vite"],
+    id: "languages",
+    skills: ["Python", "SQL", "C#"],
   },
-  { id: "database", technologies: ["PostgreSQL", "SQL"] },
   {
-    id: "devopsTools",
-    technologies: [
-      "Docker",
-      "Git",
-      "GitHub",
-      "Linux",
-      "CI/CD",
-      "GitHub Actions",
-    ],
+    id: "infra",
+    skills: ["Docker", "Docker Compose", "Git", "GitHub Actions", "CI/CD", "Linux"],
   },
 ];

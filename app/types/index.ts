@@ -1,14 +1,14 @@
 export type NavId =
   | "hero"
   | "about"
-  | "experience"
   | "projects"
   | "skills"
+  | "experience"
   | "contact";
 
 export type NavItem = {
   index: string;
-  id: NavId;
+  id: Exclude<NavId, "hero">;
 };
 
 export type Profile = {
@@ -20,24 +20,38 @@ export type Profile = {
 
 export type Locale = "en" | "pt";
 
+export type PipelineStageId = "extract" | "transform" | "load";
+
+export type PipelineStage = {
+  id: PipelineStageId;
+  tech: string;
+};
+
 export type SkillCategoryId =
-  | "languages"
+  | "dataEngineering"
+  | "dataAnalysis"
   | "backend"
-  | "frontend"
-  | "database"
-  | "devopsTools";
+  | "languages"
+  | "infra";
 
-export type ProjectId = "gamehub";
+export type SkillCategory = {
+  id: SkillCategoryId;
+  skills: string[];
+};
 
-export type ProjectCategory = "backend" | "frontend" | "fullstack";
+export type ProjectId = "dataflow" | "gamehub" | "devopsEsg";
+
+export type ProjectCategory = "data" | "backend" | "devops";
 
 export type Project = {
   id: ProjectId;
   name: string;
   category: ProjectCategory;
   technologies: string[];
-  githubUrl: string;
+  githubUrl?: string;
   featured: boolean;
+  inDevelopment?: boolean;
+  academic?: boolean;
 };
 
 export type ExperienceId = "positivo" | "minsait";
@@ -45,6 +59,7 @@ export type ExperienceId = "positivo" | "minsait";
 export type Experience = {
   id: ExperienceId;
   company: string;
+  technologies: string[];
 };
 
 export type ExperienceContent = {
@@ -53,6 +68,13 @@ export type ExperienceContent = {
   location: string;
   model: string;
   highlights: string[];
+};
+
+export type EducationId = "fiap";
+
+export type Education = {
+  id: EducationId;
+  institution: string;
 };
 
 export type Dictionary = {
@@ -66,48 +88,66 @@ export type Dictionary = {
     closeMenu: string;
     languageSwitcher: string;
     sectionNavigation: string;
+    backToTop: string;
   };
-  nav: Record<NavId, string>;
+  nav: Record<Exclude<NavId, "hero">, string>;
   hero: {
+    status: string;
     role: string;
+    headline: string;
+    headlineMuted: string;
     tagline: string;
     viewProjects: string;
     contactMe: string;
+    facts: { label: string; value: string }[];
   };
-  skills: {
+  pipeline: {
     title: string;
-    description: string;
-    categories: Record<SkillCategoryId, string>;
-  };
-  footer: {
-    rights: string;
-    emailLabel: string;
-    githubLabel: string;
-    linkedinLabel: string;
+    status: string;
+    stages: Record<PipelineStageId, { label: string; detail: string }>;
+    orchestration: string;
+    runtime: string;
   };
   about: {
     title: string;
-    paragraph: string;
-  };
-  experience: {
-    title: string;
-    description: string;
-    items: Record<ExperienceId, ExperienceContent>;
+    paragraphs: string[];
   };
   projects: {
     title: string;
     description: string;
     featuredLabel: string;
-    githubLabel: string;
+    inDevelopmentLabel: string;
+    academicLabel: string;
+    repositoryLabel: string;
+    repositoryPending: string;
+    stackLabel: string;
+    goalsLabel: string;
+    otherTitle: string;
     categoryLabels: Record<ProjectCategory, string>;
-    items: Record<ProjectId, { description: string }>;
+    items: Record<ProjectId, { description: string; goals?: string[] }>;
+  };
+  skills: {
+    title: string;
+    description: string;
+    categories: Record<SkillCategoryId, { title: string; description: string }>;
+  };
+  experience: {
+    title: string;
+    workTitle: string;
+    educationTitle: string;
+    items: Record<ExperienceId, ExperienceContent>;
+    education: Record<EducationId, { degree: string; detail: string }>;
   };
   contact: {
     title: string;
     description: string;
-    cta: string;
+    availability: string;
     emailLabel: string;
     githubLabel: string;
     linkedinLabel: string;
+  };
+  footer: {
+    rights: string;
+    role: string;
   };
 };

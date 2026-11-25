@@ -6,6 +6,7 @@ import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { PROJECTS } from "@/app/lib/content/projects";
 import { getNavIndex } from "@/app/lib/navigation";
+import { FeaturedProject } from "./FeaturedProject";
 import { ProjectCard } from "./ProjectCard";
 
 export function ProjectsSection() {
@@ -15,36 +16,41 @@ export function ProjectsSection() {
   const others = PROJECTS.filter((project) => !project.featured);
 
   return (
-    <section
-      id="projects"
-      className="border-b border-border py-24 last:border-b-0"
-    >
+    <section id="projects" className="border-b border-border py-24 md:py-32">
       <Container>
         <RevealOnScroll>
           <SectionHeading
             index={getNavIndex("projects")}
+            label={dictionary.nav.projects}
             title={dictionary.projects.title}
             description={dictionary.projects.description}
           />
         </RevealOnScroll>
 
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           {featured.map((project) => (
             <RevealOnScroll key={project.id}>
-              <ProjectCard project={project} />
+              <FeaturedProject project={project} />
             </RevealOnScroll>
           ))}
+        </div>
 
-          {others.length > 0 && (
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {others.length > 0 && (
+          <div className="mt-16">
+            <RevealOnScroll>
+              <h3 className="mb-4 font-mono text-xs text-foreground-subtle">
+                {dictionary.projects.otherTitle}
+              </h3>
+            </RevealOnScroll>
+            <div className="grid gap-4 md:grid-cols-2">
               {others.map((project, index) => (
-                <RevealOnScroll key={project.id} delay={index * 0.06}>
+                <RevealOnScroll key={project.id} delay={index * 0.06} className="h-full">
                   <ProjectCard project={project} />
                 </RevealOnScroll>
               ))}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </Container>
     </section>
   );

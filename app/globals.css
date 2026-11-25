@@ -1,31 +1,37 @@
 @import "tailwindcss";
 
+/*
+ * Dark-only palette. Neutral, near-black surfaces with a single mint accent
+ * used sparingly for state (running/success, active nav) — amber marks
+ * work in progress. Contrast: foreground-muted ≈ 8:1 and foreground-subtle
+ * ≈ 5:1 on background, both above WCAG AA for body text.
+ */
 :root {
-  --background: #05080c;
-  --surface: #0d1218;
-  --surface-hover: #131a22;
-  --border: rgba(255, 255, 255, 0.08);
-  --border-strong: rgba(255, 255, 255, 0.14);
+  --background: #08090a;
+  --surface: #0e0f11;
+  --surface-hover: #131417;
+  --surface-raised: #17181b;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
 
-  --foreground: #e7edf3;
-  --foreground-muted: #93a1b0;
-  --foreground-subtle: #7c8794;
+  --foreground: #f2f3f5;
+  --foreground-muted: #a3a6ae;
+  --foreground-subtle: #80838b;
 
-  --accent: #22d3ee;
-  --accent-strong: #67e8f9;
-  --accent-dim: #0e7490;
-  --accent-on: #04121a;
+  --accent: #4fd8a8;
+  --accent-strong: #84ebc6;
+  --accent-dim: #12392d;
+  --accent-on: #03140d;
 
-  --success: #4ade80;
-  --error: #f87171;
-
-  --glow-accent: 0 0 32px -8px rgba(34, 211, 238, 0.35);
+  --warning: #f2b552;
+  --warning-dim: #3a2a0c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-hover: var(--surface-hover);
+  --color-surface-raised: var(--surface-raised);
   --color-border: var(--border);
   --color-border-strong: var(--border-strong);
 
@@ -38,24 +44,79 @@
   --color-accent-dim: var(--accent-dim);
   --color-accent-on: var(--accent-on);
 
-  --color-success: var(--success);
-  --color-error: var(--error);
+  --color-warning: var(--warning);
+  --color-warning-dim: var(--warning-dim);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --animate-flow: flow 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* CSS-only entrance for above-the-fold content: it plays without waiting
+   for hydration, so the hero is never stuck invisible (LCP, no-JS). */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes flow {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* Faint engineering grid, faded out toward the edges. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 35%, #000 30%, transparent 75%);
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+  font-feature-settings: "ss01", "cv11";
 }
 
 section[id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 4.5rem;
 }
 
 ::selection {

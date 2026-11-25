@@ -2,7 +2,7 @@
 
 # Portfolio — Regras Técnicas e Arquiteturais
 
-Projeto: portfólio profissional pessoal de um desenvolvedor **Back-End**. Site majoritariamente estático (sem CMS/DB por enquanto), com foco em qualidade visual, performance, SEO e acessibilidade.
+Projeto: portfólio profissional pessoal com foco em **Engenharia de Dados** (Análise de Dados como área secundária). Site majoritariamente estático (sem CMS/DB por enquanto), com foco em qualidade visual, performance, SEO e acessibilidade.
 
 ## Stack (fixada — não trocar sem discutir)
 
@@ -52,7 +52,7 @@ Regras:
 - Abordagem client-side simples, sem roteamento por locale (`/en`, `/pt`) e sem lib de i18n — decisão deliberada para manter o projeto simples (site de uma página só).
 - Textos traduzíveis (UI copy: nav, hero, skills, projects, experience, contact, a11y labels) vivem em `app/lib/i18n/dictionaries/{en,pt}.ts`, tipados por `Dictionary` em `app/types`. Dados factuais não traduzíveis (nome, links, lista de tecnologias) continuam em `app/lib/content/*` como antes.
 - `LanguageProvider` (`app/components/providers/LanguageProvider.tsx`) lê/escreve o locale em `localStorage` através de `useSyncExternalStore` (não `useState` + efeito — evita o lint `react-hooks/set-state-in-effect` e é o mecanismo que o próprio React recomenda para sincronizar com uma store externa sem mismatch de hidratação). `getServerSnapshot` sempre retorna `"en"`, igual ao HTML renderizado no servidor; a preferência salva só é lida no cliente após o mount. Isso causa um pequeno "flash" para EN em quem já escolheu PT antes de recarregar — troca aceita em nome da simplicidade (evitar cookie + leitura de locale no servidor). `<html lang>` é sincronizado via efeito imperativo separado (mutação direta do DOM, não `setState`).
-- **Consequência arquitetural**: qualquer seção que renderize texto traduzido precisa ser Client Component (consome `useLanguage()`), pois o texto precisa reagir à troca de idioma sem reload de página. `Hero`, `About`, `Experience`, `ProjectsSection`, `Skills`, `Contact`, `SideNav`, `MobileNav`, `Footer`, `SkipLink` são Client por esse motivo — é uma exceção justificada à regra "Server por padrão", não um desvio arbitrário. Dados/estrutura que não dependem de idioma (ex.: `SKILL_CATEGORIES`, `PROJECTS`) continuam em módulos simples sem `'use client'`.
+- **Consequência arquitetural**: qualquer seção que renderize texto traduzido precisa ser Client Component (consome `useLanguage()`), pois o texto precisa reagir à troca de idioma sem reload de página. `Hero`, `About`, `Experience`, `ProjectsSection`, `Skills`, `Contact`, `Header`, `MobileNav`, `Footer`, `SkipLink` são Client por esse motivo — é uma exceção justificada à regra "Server por padrão", não um desvio arbitrário. Dados/estrutura que não dependem de idioma (ex.: `SKILL_CATEGORIES`, `PROJECTS`) continuam em módulos simples sem `'use client'`.
 - Não duplicar a página inteira por idioma. Um único componente renderiza a UI e troca só o texto via dicionário.
 
 ## Server vs Client Components

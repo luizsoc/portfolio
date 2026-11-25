@@ -17,7 +17,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
       role="group"
       aria-label={dictionary.a11y.languageSwitcher}
       className={cn(
-        "inline-flex items-center gap-1 rounded-full border border-border p-1",
+        "inline-flex items-center rounded-lg border border-border bg-surface p-0.5",
         className
       )}
     >
@@ -30,10 +30,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             onClick={() => setLocale(code)}
             aria-pressed={isActive}
             className={cn(
-              "rounded-full px-2.5 py-1 font-mono text-xs tracking-wide transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-accent",
+              "h-7 rounded-md px-2 font-mono text-xs transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-accent",
               isActive
-                ? "bg-accent text-accent-on"
-                : "text-foreground-muted hover:text-foreground"
+                ? "bg-surface-raised text-foreground shadow-[inset_0_0_0_1px_var(--border-strong)]"
+                : "text-foreground-subtle hover:text-foreground"
             )}
           >
             {label}

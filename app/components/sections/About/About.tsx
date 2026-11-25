@@ -8,18 +8,27 @@ import { getNavIndex } from "@/app/lib/navigation";
 
 export function About() {
   const { dictionary } = useLanguage();
+  const { about } = dictionary;
 
   return (
-    <section
-      id="about"
-      className="border-b border-border py-24 last:border-b-0"
-    >
+    <section id="about" className="border-b border-border py-24 md:py-32">
       <Container>
         <RevealOnScroll>
-          <SectionHeading index={getNavIndex("about")} title={dictionary.about.title} />
-          <p className="max-w-2xl text-base leading-relaxed text-foreground-muted md:text-lg">
-            {dictionary.about.paragraph}
-          </p>
+          <SectionHeading
+            index={getNavIndex("about")}
+            label={dictionary.nav.about}
+            title={about.title}
+          />
+          <div className="flex max-w-3xl flex-col gap-5">
+            {about.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph}
+                className="text-base leading-relaxed text-pretty text-foreground-muted md:text-lg"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </RevealOnScroll>
       </Container>
     </section>
