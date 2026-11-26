@@ -58,7 +58,7 @@ export const en: Dictionary = {
   about: {
     title: "About me",
     paragraphs: [
-      "I'm Luiz Silva, focused on Data Engineering and Data Analysis. I build data pipelines with Python, SQL and PostgreSQL, and I have professional experience developing REST APIs and working with PostgreSQL databases at Minsait.",
+      "I'm Luiz Silva, focused on Data Analysis and Software Development. I build data pipelines with Python, SQL and PostgreSQL, and I have professional experience developing REST APIs and working with PostgreSQL databases.",
     ],
   },
   projects: {

@@ -58,7 +58,7 @@ export const pt: Dictionary = {
   about: {
     title: "Sobre mim",
     paragraphs: [
-      "Sou Luiz Silva, com foco em Engenharia de Dados e Análise de Dados. Construo pipelines de dados com Python, SQL e PostgreSQL e tenho experiência profissional no desenvolvimento de APIs REST e no trabalho com bancos de dados PostgreSQL na Minsait.",
+      "Sou Luiz Silva, com foco em Análise de Dados e Desenvolvimento de Software. Construo pipelines de dados com Python, SQL e PostgreSQL e tenho experiência profissional no desenvolvimento de APIs REST e no trabalho com bancos de dados PostgreSQL.",
     ],
   },
   projects: {
