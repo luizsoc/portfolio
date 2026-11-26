@@ -1,16 +1,22 @@
 import type { Project } from "@/app/types";
 
-// Facts only — verified against the public repositories. DataFlow Pipeline
-// has no public repository yet, so it carries no link and is flagged as in
-// development until one exists.
+// Facts only — verified against the public repositories.
 export const PROJECTS: Project[] = [
   {
     id: "dataflow",
     name: "DataFlow Pipeline",
     category: "data",
-    technologies: ["Python", "Pandas", "PostgreSQL", "Apache Airflow", "Docker"],
+    technologies: [
+      "Python",
+      "Pandas",
+      "PostgreSQL",
+      "Apache Airflow",
+      "Docker",
+      "Pytest",
+      "GitHub Actions",
+    ],
+    githubUrl: "https://github.com/luizsoc/dataflow-pipeline",
     featured: true,
-    inDevelopment: true,
   },
   {
     id: "gamehub",

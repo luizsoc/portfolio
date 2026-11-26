@@ -1,6 +1,13 @@
 "use client";
 
-import { ArrowDownToLine, Container as ContainerIcon, Database, Shuffle, Workflow } from "lucide-react";
+import {
+  Archive,
+  ArrowDownToLine,
+  ChartColumn,
+  Container as ContainerIcon,
+  Funnel,
+  Workflow,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { StatusDot } from "@/app/components/ui/StatusDot";
@@ -13,20 +20,19 @@ import type { PipelineStageId } from "@/app/types";
 
 const STAGE_ICONS: Record<PipelineStageId, LucideIcon> = {
   extract: ArrowDownToLine,
-  transform: Shuffle,
-  load: Database,
+  bronze: Archive,
+  silver: Funnel,
+  gold: ChartColumn,
 };
 
-// A schematic of DataFlow Pipeline — stages and stack only. It deliberately
-// shows no run statistics: the project is in development and any numbers
-// here would be made up.
+// A schematic of DataFlow Pipeline's Medallion flow (Bronze → Silver → Gold).
 export function PipelineDiagram() {
   const { dictionary } = useLanguage();
   const { pipeline } = dictionary;
 
   return (
     <figure
-      aria-label={`${pipeline.title} — ${pipeline.status}`}
+      aria-label={`${pipeline.title} — ${pipeline.schedule}`}
       className="overflow-hidden rounded-xl border border-border-strong bg-surface shadow-[0_32px_80px_-40px_rgba(0,0,0,0.9)]"
     >
       <figcaption className="flex h-11 items-center justify-between gap-3 border-b border-border px-4">
@@ -37,9 +43,9 @@ export function PipelineDiagram() {
             DAG
           </span>
         </span>
-        <span className="flex shrink-0 items-center gap-1.5 rounded-full border border-warning/25 bg-warning-dim/60 px-2 py-0.5 font-mono text-[11px] text-warning">
-          <StatusDot tone="warning" pulse />
-          {pipeline.status}
+        <span className="flex shrink-0 items-center gap-1.5 rounded-full border border-accent/25 bg-accent-dim/50 px-2 py-0.5 font-mono text-[11px] text-accent-strong">
+          <StatusDot />
+          {pipeline.schedule}
         </span>
       </figcaption>
 
@@ -51,7 +57,7 @@ export function PipelineDiagram() {
 
           return (
             <li key={stage.id}>
-              <div className="flex items-center gap-3 rounded-lg border border-border bg-background/60 p-3">
+              <div className="flex items-center gap-3 rounded-lg border border-border bg-background/60 px-3 py-2.5">
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-md border border-border-strong bg-surface-raised text-accent">
                   <Icon aria-hidden="true" size={15} />
                 </span>
@@ -69,10 +75,10 @@ export function PipelineDiagram() {
               </div>
 
               {!isLast && (
-                <div aria-hidden="true" className="relative ml-7 h-6 w-px bg-border-strong">
+                <div aria-hidden="true" className="relative ml-7 h-4 w-px bg-border-strong">
                   <span
                     className="absolute left-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent shadow-[0_0_8px_var(--accent)] animate-flow"
-                    style={{ animationDelay: `${index * 0.8}s` }}
+                    style={{ animationDelay: `${index * 0.6}s` }}
                   />
                 </div>
               )}

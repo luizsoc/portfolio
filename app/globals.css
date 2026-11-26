@@ -2,9 +2,9 @@
 
 /*
  * Dark-only palette. Neutral, near-black surfaces with a single mint accent
- * used sparingly for state (running/success, active nav) — amber marks
- * work in progress. Contrast: foreground-muted ≈ 8:1 and foreground-subtle
- * ≈ 5:1 on background, both above WCAG AA for body text.
+ * used sparingly for state (availability, schedule, highlights).
+ * Contrast: foreground-muted ≈ 8:1 and foreground-subtle ≈ 5:1 on
+ * background, both above WCAG AA for body text.
  */
 :root {
   --background: #08090a;
@@ -22,9 +22,6 @@
   --accent-strong: #84ebc6;
   --accent-dim: #12392d;
   --accent-on: #03140d;
-
-  --warning: #f2b552;
-  --warning-dim: #3a2a0c;
 }
 
 @theme inline {
@@ -43,9 +40,6 @@
   --color-accent-strong: var(--accent-strong);
   --color-accent-dim: var(--accent-dim);
   --color-accent-on: var(--accent-on);
-
-  --color-warning: var(--warning);
-  --color-warning-dim: var(--warning-dim);
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);

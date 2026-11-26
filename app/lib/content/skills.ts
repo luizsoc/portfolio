@@ -10,6 +10,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       "ETL / ELT",
       "Pandas",
       "Apache Airflow",
+      "Medallion Architecture",
+      "Dimensional modeling",
+      "Data quality",
       "Docker",
     ],
   },
@@ -34,6 +37,14 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     id: "infra",
-    skills: ["Docker", "Docker Compose", "Git", "GitHub Actions", "CI/CD", "Linux"],
+    skills: [
+      "Docker",
+      "Docker Compose",
+      "Git",
+      "GitHub Actions",
+      "CI/CD",
+      "Pytest",
+      "Linux",
+    ],
   },
 ];

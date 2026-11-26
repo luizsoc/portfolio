@@ -20,11 +20,19 @@ export type Profile = {
 
 export type Locale = "en" | "pt";
 
-export type PipelineStageId = "extract" | "transform" | "load";
+export type PipelineStageId = "extract" | "bronze" | "silver" | "gold";
 
 export type PipelineStage = {
   id: PipelineStageId;
   tech: string;
+};
+
+export type PipelineMetricId = "rawRows" | "cleanRows" | "qualityChecks" | "tests";
+
+export type PipelineMetric = {
+  id: PipelineMetricId;
+  value: number;
+  format: "integer" | "percent";
 };
 
 export type SkillCategoryId =
@@ -48,9 +56,8 @@ export type Project = {
   name: string;
   category: ProjectCategory;
   technologies: string[];
-  githubUrl?: string;
+  githubUrl: string;
   featured: boolean;
-  inDevelopment?: boolean;
   academic?: boolean;
 };
 
@@ -103,10 +110,11 @@ export type Dictionary = {
   };
   pipeline: {
     title: string;
-    status: string;
+    schedule: string;
     stages: Record<PipelineStageId, { label: string; detail: string }>;
     orchestration: string;
     runtime: string;
+    metrics: Record<PipelineMetricId, string>;
   };
   about: {
     title: string;
@@ -116,15 +124,14 @@ export type Dictionary = {
     title: string;
     description: string;
     featuredLabel: string;
-    inDevelopmentLabel: string;
     academicLabel: string;
     repositoryLabel: string;
-    repositoryPending: string;
     stackLabel: string;
-    goalsLabel: string;
+    metricsLabel: string;
+    highlightsLabel: string;
     otherTitle: string;
     categoryLabels: Record<ProjectCategory, string>;
-    items: Record<ProjectId, { description: string; goals?: string[] }>;
+    items: Record<ProjectId, { description: string; highlights?: string[] }>;
   };
   skills: {
     title: string;

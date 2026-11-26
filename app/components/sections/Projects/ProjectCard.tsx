@@ -26,11 +26,9 @@ export function ProjectCard({ project }: { project: Project }) {
         <h4 className="text-lg font-semibold tracking-[-0.02em] text-foreground">
           {project.name}
         </h4>
-        {project.githubUrl && (
-          <p className="font-mono text-xs text-foreground-subtle">
-            {repoPath(project.githubUrl)}
-          </p>
-        )}
+        <p className="font-mono text-xs text-foreground-subtle">
+          {repoPath(project.githubUrl)}
+        </p>
       </div>
 
       <p className="text-sm leading-relaxed text-pretty text-foreground-muted">
@@ -45,19 +43,17 @@ export function ProjectCard({ project }: { project: Project }) {
         ))}
       </ul>
 
-      {project.githubUrl && (
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-auto inline-flex w-fit items-center gap-2 rounded-md pt-1 text-sm text-foreground-muted transition-colors duration-150 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-        >
-          <GitHubIcon size={15} />
-          {projects.repositoryLabel}
-          <ArrowUpRight aria-hidden="true" size={14} />
-          <span className="sr-only">— {project.name}</span>
-        </a>
-      )}
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto inline-flex w-fit items-center gap-2 rounded-md pt-1 text-sm text-foreground-muted transition-colors duration-150 hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      >
+        <GitHubIcon size={15} />
+        {projects.repositoryLabel}
+        <ArrowUpRight aria-hidden="true" size={14} />
+        <span className="sr-only">— {project.name}</span>
+      </a>
     </Card>
   );
 }

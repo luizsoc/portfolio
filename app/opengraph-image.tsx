@@ -6,7 +6,7 @@ export const alt = dictionaries.en.meta.title;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const STAGES = ["Extract", "Transform", "Load"];
+const STAGES = ["Bronze", "Silver", "Gold"];
 
 // Colors mirror the tokens in app/globals.css (ImageResponse can't read CSS vars).
 export default function OpengraphImage() {
@@ -54,7 +54,7 @@ export default function OpengraphImage() {
             {profile.name}
           </div>
           <div style={{ display: "flex", fontSize: 36, color: "#80838b", marginTop: 24 }}>
-            Python · SQL · PostgreSQL · ETL
+            Python · SQL · PostgreSQL · Airflow
           </div>
         </div>
 

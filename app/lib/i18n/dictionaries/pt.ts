@@ -39,14 +39,21 @@ export const pt: Dictionary = {
   },
   pipeline: {
     title: "DataFlow Pipeline",
-    status: "Em desenvolvimento",
+    schedule: "Execução diária",
     stages: {
-      extract: { label: "Extração", detail: "Coleta dos dados brutos nas fontes" },
-      transform: { label: "Transformação", detail: "Limpeza e reestruturação dos dados" },
-      load: { label: "Carga", detail: "Persistência no banco de dados" },
+      extract: { label: "Extract", detail: "Download do dataset público via HTTP" },
+      bronze: { label: "Bronze", detail: "Linhas brutas, intactas e rastreáveis" },
+      silver: { label: "Silver", detail: "Limpas, validadas e sem duplicatas" },
+      gold: { label: "Gold", detail: "Star schema para análise" },
     },
     orchestration: "Orquestrado por",
     runtime: "Executa em",
+    metrics: {
+      rawRows: "Linhas brutas ingeridas",
+      cleanRows: "Linhas aprovadas para a Silver",
+      qualityChecks: "Checagens de qualidade por execução",
+      tests: "Testes automatizados",
+    },
   },
   about: {
     title: "Sobre mim",
@@ -58,12 +65,11 @@ export const pt: Dictionary = {
     title: "Projetos selecionados",
     description: "Projetos de Engenharia de Dados, além de trabalhos em backend e DevOps.",
     featuredLabel: "Destaque",
-    inDevelopmentLabel: "Em desenvolvimento",
     academicLabel: "Acadêmico",
     repositoryLabel: "Repositório",
-    repositoryPending: "Repositório ainda não público",
     stackLabel: "Stack",
-    goalsLabel: "Escopo",
+    metricsLabel: "Resultados no dataset completo",
+    highlightsLabel: "Destaques",
     otherTitle: "Backend & DevOps",
     categoryLabels: {
       data: "Engenharia de Dados",
@@ -73,12 +79,13 @@ export const pt: Dictionary = {
     items: {
       dataflow: {
         description:
-          "Pipeline ETL de ponta a ponta: os dados são extraídos com Python, transformados com Pandas e carregados no PostgreSQL, com os fluxos orquestrados pelo Apache Airflow e o ambiente containerizado com Docker.",
-        goals: [
-          "Extração, transformação e carga como etapas separadas e reutilizáveis",
-          "DAGs do Airflow para agendamento e orquestração",
-          "PostgreSQL como destino dos dados estruturados",
-          "Ambiente reproduzível com Docker",
+          "Pipeline ELT em batch que transforma um milhão de transações brutas de varejo em um star schema testado e pronto para análise. Construído em Medallion Architecture (Bronze, Silver, Gold) com Python, Pandas e PostgreSQL, orquestrado diariamente pelo Apache Airflow e executado de ponta a ponta com um único docker compose up.",
+        highlights: [
+          "Qualidade de dados como barreira: checagens críticas param a execução antes que dados inválidos cheguem à Silver ou à Gold, e linhas rejeitadas vão para quarentena com o motivo",
+          "Execuções idempotentes: uma segunda execução ignora o arquivo já carregado e altera 0 linhas",
+          "Modelo dimensional: tabela fato, quatro dimensões, surrogate keys e membro desconhecido",
+          "Observabilidade com logs estruturados e um schema de auditoria para cada execução de tarefa e checagem de qualidade",
+          "Testes unitários e de integração com Pytest, além de Ruff e CI no GitHub Actions",
         ],
       },
       gamehub: {

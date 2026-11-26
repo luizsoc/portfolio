@@ -22,7 +22,7 @@ export function Hero() {
       />
 
       <Container className="relative grid gap-14 pt-16 pb-16 md:pt-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16 lg:pt-28 lg:pb-24">
-        <div className="flex animate-fade-up flex-col items-start gap-7">
+        <div className="flex min-w-0 animate-fade-up flex-col items-start gap-7">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/80 px-3 py-1 text-xs text-foreground-muted backdrop-blur-sm">
             <StatusDot pulse />
             {hero.status}
@@ -53,7 +53,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="animate-fade-up [animation-delay:120ms]">
+        <div className="min-w-0 animate-fade-up [animation-delay:120ms]">
           <PipelineDiagram />
         </div>
       </Container>
