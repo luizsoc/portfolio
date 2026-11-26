@@ -7,7 +7,6 @@ import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
 import { Badge } from "@/app/components/ui/Badge";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { EDUCATION, EXPERIENCES } from "@/app/lib/content/experience";
-import { getNavIndex } from "@/app/lib/navigation";
 
 export function Experience() {
   const { dictionary } = useLanguage();
@@ -18,7 +17,6 @@ export function Experience() {
       <Container>
         <RevealOnScroll>
           <SectionHeading
-            index={getNavIndex("experience")}
             label={dictionary.nav.experience}
             title={experience.title}
           />

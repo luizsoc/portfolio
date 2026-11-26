@@ -6,7 +6,6 @@ import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
 import { Badge } from "@/app/components/ui/Badge";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { SKILL_CATEGORIES } from "@/app/lib/content/skills";
-import { getNavIndex } from "@/app/lib/navigation";
 import { cn } from "@/app/lib/utils";
 
 // The first category (Data Engineering) is the primary focus and gets the
@@ -20,7 +19,6 @@ export function Skills() {
       <Container>
         <RevealOnScroll>
           <SectionHeading
-            index={getNavIndex("skills")}
             label={dictionary.nav.skills}
             title={skills.title}
             description={skills.description}

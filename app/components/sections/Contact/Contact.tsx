@@ -8,7 +8,6 @@ import { StatusDot } from "@/app/components/ui/StatusDot";
 import { GitHubIcon, LinkedInIcon } from "@/app/components/ui/icons";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { profile } from "@/app/lib/content/profile";
-import { getNavIndex } from "@/app/lib/navigation";
 
 export function Contact() {
   const { dictionary } = useLanguage();
@@ -22,11 +21,7 @@ export function Contact() {
             <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-0 opacity-60" />
 
             <div className="relative flex flex-col items-start gap-6">
-              <p className="flex items-center gap-3 font-mono text-xs text-foreground-subtle">
-                <span className="text-accent">{getNavIndex("contact")}</span>
-                <span aria-hidden="true" className="h-px w-6 bg-border-strong" />
-                {dictionary.nav.contact}
-              </p>
+              <p className="font-mono text-xs text-accent">{dictionary.nav.contact}</p>
 
               <h2 className="text-3xl font-semibold tracking-[-0.03em] text-balance text-foreground sm:text-4xl md:text-5xl">
                 {contact.title}

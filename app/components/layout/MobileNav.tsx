@@ -118,13 +118,10 @@ export function MobileNav({ activeId }: { activeId: string }) {
                         }}
                         aria-current={isActive ? "true" : undefined}
                         className={cn(
-                          "flex items-baseline gap-4 py-4 text-2xl font-medium tracking-tight focus-visible:outline-2 focus-visible:outline-accent",
+                          "block py-4 text-2xl font-medium tracking-tight focus-visible:outline-2 focus-visible:outline-accent",
                           isActive ? "text-foreground" : "text-foreground-muted"
                         )}
                       >
-                        <span className="font-mono text-xs text-foreground-subtle">
-                          {item.index}
-                        </span>
                         {dictionary.nav[item.id]}
                       </a>
                     </li>

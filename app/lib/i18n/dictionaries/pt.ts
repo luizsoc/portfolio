@@ -15,7 +15,6 @@ export const pt: Dictionary = {
     backToTop: "Voltar ao topo",
   },
   nav: {
-    about: "Sobre",
     projects: "Projetos",
     skills: "Skills",
     experience: "Experiência",
@@ -27,7 +26,7 @@ export const pt: Dictionary = {
     headline: "Pipelines de dados,",
     headlineMuted: "da origem ao banco de dados.",
     tagline:
-      "Sou o Luiz. Trabalho com Python, SQL e PostgreSQL para extrair, transformar e carregar dados, com experiência profissional em APIs e bancos de dados na Minsait.",
+      "Sou o Luiz. Trabalho com Python, SQL e PostgreSQL para extrair, transformar e carregar dados, com experiência profissional em APIs e bancos de dados.",
     viewProjects: "Ver projetos",
     contactMe: "Entrar em contato",
     facts: [
@@ -54,12 +53,6 @@ export const pt: Dictionary = {
       qualityChecks: "Checagens de qualidade por execução",
       tests: "Testes automatizados",
     },
-  },
-  about: {
-    title: "Sobre mim",
-    paragraphs: [
-      "Sou Luiz Silva, com foco em Análise de Dados e Desenvolvimento de Software. Construo pipelines de dados com Python, SQL e PostgreSQL e tenho experiência profissional no desenvolvimento de APIs REST e no trabalho com bancos de dados PostgreSQL.",
-    ],
   },
   projects: {
     title: "Projetos selecionados",

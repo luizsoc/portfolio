@@ -1,13 +1,11 @@
 export type NavId =
   | "hero"
-  | "about"
   | "projects"
   | "skills"
   | "experience"
   | "contact";
 
 export type NavItem = {
-  index: string;
   id: Exclude<NavId, "hero">;
 };
 
@@ -115,10 +113,6 @@ export type Dictionary = {
     orchestration: string;
     runtime: string;
     metrics: Record<PipelineMetricId, string>;
-  };
-  about: {
-    title: string;
-    paragraphs: string[];
   };
   projects: {
     title: string;

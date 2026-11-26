@@ -8,7 +8,7 @@ Portfólio pessoal de **Luiz Silva**, com foco em **Engenharia de Dados** e **An
 
 ## Funcionalidades
 
-- **Layout de página única** com as seções Início, Sobre, Projetos, Skills, Experiência (com Formação) e Contato
+- **Layout de página única** com as seções Início, Projetos, Skills, Experiência (com Formação) e Contato
 - **Foco em dados**: diagrama do DataFlow Pipeline (Medallion Architecture: Extract → Bronze → Silver → Gold, orquestrado pelo Airflow) no topo e projetos e skills de dados em destaque
 - **Bilíngue (EN / PT-BR)**: troca de idioma no cliente, preferência salva no `localStorage` e `<html lang>` sincronizado
 - **Navegação responsiva**: header fixo com links no desktop, menu em tela cheia no mobile e destaque da seção ativa

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-// Single-page site: section anchors (#about, #projects...) are not separate
+// Single-page site: section anchors (#projects, #skills...) are not separate
 // URLs, so the sitemap lists only the canonical home page.
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

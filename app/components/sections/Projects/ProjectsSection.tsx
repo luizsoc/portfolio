@@ -5,7 +5,6 @@ import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { PROJECTS } from "@/app/lib/content/projects";
-import { getNavIndex } from "@/app/lib/navigation";
 import { FeaturedProject } from "./FeaturedProject";
 import { ProjectCard } from "./ProjectCard";
 
@@ -20,7 +19,6 @@ export function ProjectsSection() {
       <Container>
         <RevealOnScroll>
           <SectionHeading
-            index={getNavIndex("projects")}
             label={dictionary.nav.projects}
             title={dictionary.projects.title}
             description={dictionary.projects.description}
