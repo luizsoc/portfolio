@@ -18,7 +18,12 @@ export type Profile = {
 
 export type Locale = "en" | "pt";
 
-export type PipelineStageId = "extract" | "bronze" | "silver" | "gold";
+export type PipelineStageId =
+  | "extract"
+  | "bronze"
+  | "silver"
+  | "gold"
+  | "dashboard";
 
 export type PipelineStage = {
   id: PipelineStageId;

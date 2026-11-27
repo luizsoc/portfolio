@@ -18,7 +18,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     id: "dataAnalysis",
-    skills: ["SQL", "Pandas", "Excel", "Pivot tables"],
+    skills: ["SQL", "Power BI", "DAX", "Pandas", "Excel", "Pivot tables"],
   },
   {
     id: "backend",

@@ -11,6 +11,7 @@ export const PROJECTS: Project[] = [
       "Pandas",
       "PostgreSQL",
       "Apache Airflow",
+      "Power BI",
       "Docker",
       "Pytest",
       "GitHub Actions",

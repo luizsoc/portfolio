@@ -7,6 +7,7 @@ export const PIPELINE_STAGES: PipelineStage[] = [
   { id: "bronze", tech: "PostgreSQL" },
   { id: "silver", tech: "Pandas" },
   { id: "gold", tech: "SQL" },
+  { id: "dashboard", tech: "Power BI" },
 ];
 
 export const PIPELINE_ORCHESTRATOR = "Apache Airflow";

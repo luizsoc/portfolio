@@ -3,9 +3,10 @@
 import {
   Archive,
   ArrowDownToLine,
-  ChartColumn,
   Container as ContainerIcon,
   Funnel,
+  LayoutDashboard,
+  Table2,
   Workflow,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -22,10 +23,12 @@ const STAGE_ICONS: Record<PipelineStageId, LucideIcon> = {
   extract: ArrowDownToLine,
   bronze: Archive,
   silver: Funnel,
-  gold: ChartColumn,
+  gold: Table2,
+  dashboard: LayoutDashboard,
 };
 
-// A schematic of DataFlow Pipeline's Medallion flow (Bronze → Silver → Gold).
+// A schematic of DataFlow Pipeline's Medallion flow (Bronze → Silver → Gold),
+// ending in the Power BI report built on the Gold layer.
 export function PipelineDiagram() {
   const { dictionary } = useLanguage();
   const { pipeline } = dictionary;

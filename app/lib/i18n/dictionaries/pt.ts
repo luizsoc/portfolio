@@ -24,7 +24,7 @@ export const pt: Dictionary = {
     status: "Aberto a oportunidades em Engenharia de Dados",
     role: "Engenharia de Dados",
     headline: "Pipelines de dados,",
-    headlineMuted: "da origem ao banco de dados.",
+    headlineMuted: "da origem ao dashboard.",
     tagline:
       "Sou o Luiz. Trabalho com Python, SQL e PostgreSQL para extrair, transformar e carregar dados, com experiência profissional em APIs e bancos de dados.",
     viewProjects: "Ver projetos",
@@ -44,6 +44,7 @@ export const pt: Dictionary = {
       bronze: { label: "Bronze", detail: "Linhas brutas, intactas e rastreáveis" },
       silver: { label: "Silver", detail: "Limpas, validadas e sem duplicatas" },
       gold: { label: "Gold", detail: "Star schema para análise" },
+      dashboard: { label: "Dashboard", detail: "Relatório Power BI sobre a Gold" },
     },
     orchestration: "Orquestrado por",
     runtime: "Executa em",
@@ -72,11 +73,12 @@ export const pt: Dictionary = {
     items: {
       dataflow: {
         description:
-          "Pipeline ELT em batch que transforma um milhão de transações brutas de varejo em um star schema testado e pronto para análise. Construído em Medallion Architecture (Bronze, Silver, Gold) com Python, Pandas e PostgreSQL, orquestrado diariamente pelo Apache Airflow e executado de ponta a ponta com um único docker compose up.",
+          "Pipeline ELT em batch que transforma um milhão de transações brutas de varejo em um star schema testado e pronto para análise. Construído em Medallion Architecture (Bronze, Silver, Gold) com Python, Pandas e PostgreSQL, orquestrado diariamente pelo Apache Airflow e visualizado em um relatório Power BI, executado de ponta a ponta com um único docker compose up.",
         highlights: [
           "Qualidade de dados como barreira: checagens críticas param a execução antes que dados inválidos cheguem à Silver ou à Gold, e linhas rejeitadas vão para quarentena com o motivo",
           "Execuções idempotentes: uma segunda execução ignora o arquivo já carregado e altera 0 linhas",
           "Modelo dimensional: tabela fato, quatro dimensões, surrogate keys e membro desconhecido",
+          "Relatório Power BI sobre a camada Gold: quatro páginas e 19 medidas DAX, cada uma conferível com uma query SQL, salvo como Power BI Project (TMDL + PBIR) e versionado no Git",
           "Observabilidade com logs estruturados e um schema de auditoria para cada execução de tarefa e checagem de qualidade",
           "Testes unitários e de integração com Pytest, além de Ruff e CI no GitHub Actions",
         ],
@@ -102,7 +104,7 @@ export const pt: Dictionary = {
       },
       dataAnalysis: {
         title: "Análise de Dados",
-        description: "Área secundária — consulta, organização e síntese de dados.",
+        description: "Consulta, modelagem e visualização de dados, do SQL aos dashboards no Power BI.",
       },
       backend: {
         title: "Backend & APIs",

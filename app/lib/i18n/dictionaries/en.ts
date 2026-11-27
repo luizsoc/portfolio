@@ -24,7 +24,7 @@ export const en: Dictionary = {
     status: "Open to Data Engineering opportunities",
     role: "Data Engineering",
     headline: "Data pipelines,",
-    headlineMuted: "from source to database.",
+    headlineMuted: "from source to dashboard.",
     tagline:
       "I'm Luiz. I work with Python, SQL and PostgreSQL to extract, transform and load data, with professional experience in APIs and databases.",
     viewProjects: "View projects",
@@ -44,6 +44,7 @@ export const en: Dictionary = {
       bronze: { label: "Bronze", detail: "Raw rows, untouched and traceable" },
       silver: { label: "Silver", detail: "Cleaned, validated, deduplicated" },
       gold: { label: "Gold", detail: "Star schema for analytics" },
+      dashboard: { label: "Dashboard", detail: "Power BI report on the Gold layer" },
     },
     orchestration: "Orchestrated by",
     runtime: "Runs on",
@@ -72,11 +73,12 @@ export const en: Dictionary = {
     items: {
       dataflow: {
         description:
-          "A batch ELT pipeline that turns one million raw retail transactions into a tested, analytics-ready star schema. Built on a Medallion Architecture (Bronze, Silver, Gold) with Python, Pandas and PostgreSQL, orchestrated daily by Apache Airflow, and running end to end with a single docker compose up.",
+          "A batch ELT pipeline that turns one million raw retail transactions into a tested, analytics-ready star schema. Built on a Medallion Architecture (Bronze, Silver, Gold) with Python, Pandas and PostgreSQL, orchestrated daily by Apache Airflow and visualized in a Power BI report, running end to end with a single docker compose up.",
         highlights: [
           "Data quality as a gate: critical checks stop the run before invalid data reaches Silver or Gold, and rejected rows are quarantined with a reason",
           "Idempotent runs: a second run skips the known file and changes 0 rows",
           "Dimensional model: fact table, four dimensions, surrogate keys and an unknown member",
+          "Power BI report on the Gold layer: four pages and 19 DAX measures, each one checkable against an SQL query, saved as a Power BI Project (TMDL + PBIR) and versioned in Git",
           "Observability with structured logs and an audit schema for every task run and quality check",
           "Pytest unit and integration tests, plus Ruff and CI on GitHub Actions",
         ],
@@ -102,7 +104,7 @@ export const en: Dictionary = {
       },
       dataAnalysis: {
         title: "Data Analysis",
-        description: "Secondary focus — querying, organizing and summarizing data.",
+        description: "Querying, modeling and visualizing data, from SQL to Power BI dashboards.",
       },
       backend: {
         title: "Backend & APIs",

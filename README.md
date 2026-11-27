@@ -4,12 +4,12 @@ Portfólio pessoal de **Luiz Silva**, com foco em **Engenharia de Dados** e **An
 
 **🔗 Acesse: [luizsoc.vercel.app](https://luizsoc.vercel.app/)**
 
-![Página inicial do portfólio: título "Data pipelines, from source to database.", botões View projects e Get in touch e um diagrama do DataFlow Pipeline com as etapas Extract, Bronze, Silver e Gold](public/images/print-home.png)
+![Página inicial do portfólio: título "Data pipelines, from source to dashboard.", botões View projects e Get in touch e um diagrama do DataFlow Pipeline com as etapas Extract, Bronze, Silver, Gold e Dashboard (Power BI)](public/images/print-home.png)
 
 ## Funcionalidades
 
 - **Layout de página única** com as seções Início, Projetos, Skills, Experiência (com Formação) e Contato
-- **Foco em dados**: diagrama do DataFlow Pipeline (Medallion Architecture: Extract → Bronze → Silver → Gold, orquestrado pelo Airflow) no topo e projetos e skills de dados em destaque
+- **Foco em dados**: diagrama do DataFlow Pipeline (Medallion Architecture: Extract → Bronze → Silver → Gold → dashboard Power BI, orquestrado pelo Airflow) no topo e projetos e skills de dados em destaque
 - **Bilíngue (EN / PT-BR)**: troca de idioma no cliente, preferência salva no `localStorage` e `<html lang>` sincronizado
 - **Navegação responsiva**: header fixo com links no desktop, menu em tela cheia no mobile e destaque da seção ativa
 - **Acessível por padrão**: HTML semântico, skip link, foco visível, navegação por teclado e suporte a `prefers-reduced-motion`
