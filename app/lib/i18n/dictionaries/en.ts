@@ -59,7 +59,6 @@ export const en: Dictionary = {
     title: "Selected projects",
     description: "Data Engineering projects, plus backend and DevOps work.",
     featuredLabel: "Featured",
-    academicLabel: "Academic",
     repositoryLabel: "Repository",
     stackLabel: "Stack",
     metricsLabel: "Results on the full dataset",
@@ -85,11 +84,7 @@ export const en: Dictionary = {
       },
       gamehub: {
         description:
-          "Real-time chat platform for gamer communities — public and private channels, direct messages, and authenticated live messaging, built with Clean Architecture on .NET and PostgreSQL.",
-      },
-      devopsEsg: {
-        description:
-          "Spring Boot application focused on DevOps practices: multi-stage Docker build, Docker Compose, and a GitHub Actions CI/CD pipeline that builds, tests and deploys to staging and production by branch.",
+          "Real-time chat platform for gamer communities — public and private channels, direct messages, and authenticated live messaging, built with Clean Architecture on .NET and PostgreSQL. DevOps: a Docker Compose stack with healthchecks, and a GitHub Actions CI pipeline that builds, runs 100 tests and smoke-tests the real Docker stack on every push.",
       },
     },
   },
@@ -115,8 +110,8 @@ export const en: Dictionary = {
         description: "Python and SQL first, plus C#.",
       },
       infra: {
-        title: "Infrastructure & Tools",
-        description: "Containers, version control and delivery automation.",
+        title: "DevOps & Tools",
+        description: "Containers, CI pipelines and version control.",
       },
     },
   },

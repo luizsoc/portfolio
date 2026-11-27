@@ -50,18 +50,17 @@ export type SkillCategory = {
   skills: string[];
 };
 
-export type ProjectId = "dataflow" | "gamehub" | "devopsEsg";
+export type ProjectId = "dataflow" | "gamehub";
 
 export type ProjectCategory = "data" | "backend" | "devops";
 
 export type Project = {
   id: ProjectId;
   name: string;
-  category: ProjectCategory;
+  categories: ProjectCategory[];
   technologies: string[];
   githubUrl: string;
   featured: boolean;
-  academic?: boolean;
 };
 
 export type ExperienceId = "positivo" | "minsait";
@@ -123,7 +122,6 @@ export type Dictionary = {
     title: string;
     description: string;
     featuredLabel: string;
-    academicLabel: string;
     repositoryLabel: string;
     stackLabel: string;
     metricsLabel: string;

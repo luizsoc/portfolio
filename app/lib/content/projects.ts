@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
   {
     id: "dataflow",
     name: "DataFlow Pipeline",
-    category: "data",
+    categories: ["data"],
     technologies: [
       "Python",
       "Pandas",
@@ -22,34 +22,20 @@ export const PROJECTS: Project[] = [
   {
     id: "gamehub",
     name: "GameHub",
-    category: "backend",
+    categories: ["backend", "devops"],
     technologies: [
       "C#",
       "ASP.NET Core",
       "PostgreSQL",
       "EF Core",
       "SignalR",
-      "Docker",
       "JWT",
       "xUnit",
-    ],
-    githubUrl: "https://github.com/luizsoc/GameHub",
-    featured: false,
-  },
-  {
-    id: "devopsEsg",
-    name: "ESG Initiative",
-    category: "devops",
-    technologies: [
-      "Java 17",
-      "Spring Boot",
       "Docker",
       "Docker Compose",
       "GitHub Actions",
-      "JUnit",
     ],
-    githubUrl: "https://github.com/luizsoc/devops-esg",
+    githubUrl: "https://github.com/luizsoc/GameHub",
     featured: false,
-    academic: true,
   },
 ];

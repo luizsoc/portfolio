@@ -45,7 +45,9 @@ export function FeaturedProject({ project }: { project: Project }) {
             <Badge className="border-accent/25 bg-accent-dim/50 text-accent-strong">
               {projects.featuredLabel}
             </Badge>
-            <Badge>{projects.categoryLabels[project.category]}</Badge>
+            {project.categories.map((category) => (
+              <Badge key={category}>{projects.categoryLabels[category]}</Badge>
+            ))}
           </div>
 
           <div className="flex flex-col gap-3">

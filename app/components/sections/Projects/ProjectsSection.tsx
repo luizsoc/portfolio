@@ -5,6 +5,7 @@ import { SectionHeading } from "@/app/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/app/components/ui/RevealOnScroll";
 import { useLanguage } from "@/app/components/providers/LanguageProvider";
 import { PROJECTS } from "@/app/lib/content/projects";
+import { cn } from "@/app/lib/utils";
 import { FeaturedProject } from "./FeaturedProject";
 import { ProjectCard } from "./ProjectCard";
 
@@ -40,7 +41,7 @@ export function ProjectsSection() {
                 {dictionary.projects.otherTitle}
               </h3>
             </RevealOnScroll>
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className={cn("grid gap-4", others.length > 1 && "md:grid-cols-2")}>
               {others.map((project, index) => (
                 <RevealOnScroll key={project.id} delay={index * 0.06} className="h-full">
                   <ProjectCard project={project} />

@@ -59,7 +59,6 @@ export const pt: Dictionary = {
     title: "Projetos selecionados",
     description: "Projetos de Engenharia de Dados, além de trabalhos em backend e DevOps.",
     featuredLabel: "Destaque",
-    academicLabel: "Acadêmico",
     repositoryLabel: "Repositório",
     stackLabel: "Stack",
     metricsLabel: "Resultados no dataset completo",
@@ -85,11 +84,7 @@ export const pt: Dictionary = {
       },
       gamehub: {
         description:
-          "Chat em tempo real para comunidades de jogadores — canais públicos e privados, mensagens diretas e comunicação autenticada ao vivo, construído com Clean Architecture em .NET e PostgreSQL.",
-      },
-      devopsEsg: {
-        description:
-          "Aplicação Spring Boot focada em práticas de DevOps: build Docker multi-stage, Docker Compose e pipeline de CI/CD no GitHub Actions que faz build, testes e deploy para staging e produção por branch.",
+          "Chat em tempo real para comunidades de jogadores — canais públicos e privados, mensagens diretas e comunicação autenticada ao vivo, construído com Clean Architecture em .NET e PostgreSQL. DevOps: stack com Docker Compose e healthchecks, e pipeline de CI no GitHub Actions que faz build, roda 100 testes e um smoke test da stack Docker real a cada push.",
       },
     },
   },
@@ -115,8 +110,8 @@ export const pt: Dictionary = {
         description: "Python e SQL em primeiro lugar, além de C#.",
       },
       infra: {
-        title: "Infraestrutura & Ferramentas",
-        description: "Containers, versionamento e automação de entrega.",
+        title: "DevOps & Ferramentas",
+        description: "Containers, pipelines de CI e versionamento.",
       },
     },
   },

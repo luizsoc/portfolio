@@ -18,8 +18,9 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <Card interactive className="flex h-full flex-col gap-5">
       <div className="flex flex-wrap items-center gap-2">
-        <Badge>{projects.categoryLabels[project.category]}</Badge>
-        {project.academic && <Badge>{projects.academicLabel}</Badge>}
+        {project.categories.map((category) => (
+          <Badge key={category}>{projects.categoryLabels[category]}</Badge>
+        ))}
       </div>
 
       <div className="flex flex-col gap-1">
@@ -31,7 +32,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </p>
       </div>
 
-      <p className="text-sm leading-relaxed text-pretty text-foreground-muted">
+      <p className="max-w-3xl text-sm leading-relaxed text-pretty text-foreground-muted">
         {projects.items[project.id].description}
       </p>
 
